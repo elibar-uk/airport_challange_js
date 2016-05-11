@@ -1,13 +1,14 @@
 "use strict";
-function Plane(){}
+function Plane(){
 
-Plane.prototype.land = function(airport) {
-  airport.clearForLanding(this);
-  this._location = airport;
-};
-Plane.prototype.takeoff = function(airport){
-  this._location.clearForTakeoff();
-};
+  Plane.prototype.land = function(airport) {
+    airport.clearForLanding(this);
+  };
+
+  Plane.prototype.takeoff = function(airport){
+    airport.clearForTakeOff(this);
+  };
+}
 //   // something complicated
 //   throw new Error("not yet implemented");
 // };

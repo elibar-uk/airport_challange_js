@@ -1,5 +1,5 @@
 
-'use strict';
+// 'use strict';
 describe('Feature Test:', function(){
 
   var plane;
@@ -16,17 +16,17 @@ describe('Feature Test:', function(){
     });
     it('planes can take off', function(){
       plane.land(airport);
-      plane.takeoff();
+      plane.takeoff(airport);
       expect(airport.planes()).not.toContain(plane);
     });
     it('prevents the plane from take off when stormy', function(){
       plane.land(airport);
       spyOn(airport,'isStormy').and.returnValue(true);
-      expect(function(){plane.takeoff();}).toThrowError('it is too stomy to take off');
+      expect(function(){plane.takeoff(airport);}).toThrowError('it is too stomy to take off');
       expect(airport.planes()).toContain(plane);
     });
     it('prevents the plane from landing when stormy', function(){
-      plane.takeoff();
+      plane.takeoff(airport);
       spyOn(airport,'isStormy').and.returnValue(true);
       expect(function(){plane.land(airport);}).toThrowError('it is too stomy to land');
       expect(airport.planes()).not.toContain(plane);

@@ -12,7 +12,7 @@ function Airport() {
     this._hanger.push(plane);
   };
 
-  Airport.prototype.clearForTakeoff = function(plane) {
+  Airport.prototype.clearForTakeOff = function(plane) {
     if (this.isStormy()){
       throw new Error('it is too stomy to take off');
     }
